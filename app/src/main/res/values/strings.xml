@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GooglePlaces_Nov9am</string>
+    <string-array name="types">
+        <item>Select</item>
+        <item>bank</item>
+        <item>atm</item>
+        <item>park</item>
+        <item>hospital</item>
+        <item>restaurant</item>
+        <item>hindu_temple</item>
+        <item>spa</item>
+        <item>police</item>
+        <item>school</item>
+        <item>pharmacy</item>
+        <item>bus_station</item>
+    </string-array>
+
+</resources>

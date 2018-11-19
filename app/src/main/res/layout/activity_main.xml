@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.8">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="Latitude"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/lati"
+                    android:gravity="center"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="Longitude"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/longi"
+                    android:gravity="center"/>
+
+        </LinearLayout>
+
+        <Button
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/ic_person_pin_circle_black_24dp" android:id="@+id/loc_pin"/>
+
+    </LinearLayout>
+
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:id="@+id/sp1"
+            android:layout_margin="5dp"
+            android:entries="@array/types"></Spinner>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+        <SeekBar
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:id="@+id/sBar"
+                android:layout_gravity="center"
+                android:min="100"
+                android:max="10000"/>
+
+        <TextView
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:id="@+id/tview"
+                android:text="Value"
+                android:gravity="center"/>
+
+    </LinearLayout>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Get Places"
+            android:layout_gravity="center"/>
+
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:id="@+id/lview"></ListView>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Show All On Map"
+            android:id="@+id/showAllOnMap"
+            android:layout_gravity="center"
+            />
+
+</LinearLayout>
