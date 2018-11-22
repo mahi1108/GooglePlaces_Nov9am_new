@@ -7,8 +7,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -40,9 +42,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             var lati = intent.getDoubleExtra("lati",0.0)
             var longi = intent.getDoubleExtra("longi",0.0)
 
-            val sydney = LatLng(-lati, longi)
-            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            val loc = LatLng(lati, longi)
+            mMap.addMarker(MarkerOptions().position(loc).title("Marker in Sydney"))
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc))
+
+            var our_lati = intent.getDoubleExtra(
+                "our_lati",0.0)
+            var our_longi = intent.getDoubleExtra("our_longi",
+                                            0.0)
+            var options = MarkerOptions( )
+            options.position(LatLng(our_lati,our_longi))
+            options.icon(BitmapDescriptorFactory.defaultMarker(
+                BitmapDescriptorFactory.HUE_GREEN))
+            mMap.addMarker(options)
+            mMap.animateCamera(CameraUpdateFactory.
+                newLatLngZoom(LatLng(our_lati,our_longi),17f))
+            var poptions = PolylineOptions( )
+            poptions.add(LatLng(lati,longi))
+            poptions.add(LatLng(our_lati,our_longi))
+            mMap.addPolyline(poptions)
+
         }else{
             for(place in places_list!!)
             {
@@ -52,7 +71,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             place.geometry.location.lng
                 ))
                 mMap.addMarker(moptions)
+
             }
+
+            var our_lati = intent.getDoubleExtra(
+                "our_lati",0.0)
+            var our_longi = intent.getDoubleExtra("our_longi",
+                0.0)
+
+            var options = MarkerOptions( )
+            options.position(LatLng(our_lati,our_longi))
+            options.icon(BitmapDescriptorFactory.defaultMarker(
+                BitmapDescriptorFactory.HUE_GREEN))
+            mMap.addMarker(options)
+            mMap.animateCamera(CameraUpdateFactory.
+                newLatLngZoom(LatLng(our_lati,our_longi),17f))
 
         }
     }

@@ -83,6 +83,10 @@ class MainActivity : AppCompatActivity() {
                                                                 geometry.location.lat)
                                     i.putExtra("longi",places_list!!.get(pos).
                                                                 geometry.location.lng)
+                                    i.putExtra("our_lati",
+                                        lati.text.toString().toDouble())
+                                 i.putExtra("our_longi",
+                                     longi.text.toString().toDouble())
                                     i.putExtra("from_single",true)
                                     startActivity(i)
                              }
@@ -103,6 +107,10 @@ class MainActivity : AppCompatActivity() {
             var i = Intent(this@MainActivity,
                 MapsActivity::class.java)
             i.putExtra("from_single",false)
+            i.putExtra("our_lati",
+                lati.text.toString().toDouble())
+            i.putExtra("our_longi",
+                longi.text.toString().toDouble())
             startActivity(i)
 
         }
